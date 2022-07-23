@@ -37,22 +37,12 @@ reduce_on_plateau_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
     optimizer=optimizer)
 loss_fn = torch.nn.MSELoss()
 
-# sample = ["test test test", "echo", "some text here as well???", "the fuck??"]
-# sample = ["test test test"]
-# encodings = tokenizer(sample, return_tensors='pt', padding=True)
-# print("\n#####")
-# print(model(encodings))
-
 
 def train_loop(dataloader, model, loss_fn, optimizer):
     model.train()
     size = len(dataloader.dataset)
     for batch, (y, X) in enumerate(dataloader):
         # Compute prediction and loss
-        # X_input_ids = X["input_ids"]
-        # X_token_type_ids = X["token_type_ids"]
-        # X_attention_mask = X["attention_mask"]
-        # pred = model(X_input_ids, X_token_type_ids, X_attention_mask)
         pred = model(X)
         loss = loss_fn(pred, y["label"])
 
@@ -73,10 +63,6 @@ def test_loop(dataloader, model, loss_fn):
 
     with torch.no_grad():
         for y, X in dataloader:
-            # X_input_ids = X["input_ids"]
-            # X_token_type_ids = X["token_type_ids"]
-            # X_attention_mask = X["attention_mask"]
-            # pred = model(X_input_ids, X_token_type_ids, X_attention_mask)
             pred = model(X)
             test_loss += loss_fn(pred, y["label"]).item()
 
