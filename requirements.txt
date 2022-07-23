@@ -1,0 +1,16 @@
+torch
+pandas
+numpy
+matplotlib
+torchsummary
+tqdm
+requests
+filelock
+huggingface_hub
+regex
+tokenizers
+sentencepiece
+sacremoses
+boto3
+importlib_metadata
+transformers
