@@ -1,18 +1,12 @@
 import torch
 from dataset import Dataset
 from model import RegressionModel
-from utils import set_seed
+from utils import set_seed, train_loop, test_loop
+from conf import config
 from transformers import BertTokenizer
 from torch.utils.data import random_split, DataLoader
 
 set_seed(1337)
-
-config = {
-    "train_dataset_path": "./dataset/train.csv",
-    "batch_size": 64,
-    "device": torch.device(torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")),
-    "epochs": 5,
-}
 
 device = config["device"]
 
@@ -36,39 +30,6 @@ optimizer = torch.optim.AdamW(params)
 reduce_on_plateau_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
     optimizer=optimizer)
 loss_fn = torch.nn.MSELoss()
-
-
-def train_loop(dataloader, model, loss_fn, optimizer):
-    model.train()
-    size = len(dataloader.dataset)
-    for batch, (y, X) in enumerate(dataloader):
-        # Compute prediction and loss
-        pred = model(X)
-        loss = loss_fn(pred, y["label"])
-
-        # Backpropagation
-        optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()
-
-        if batch % 10 == 0:
-            loss, current = loss.item(), batch * len(y["label"])
-            print(f"loss: {loss:>7f}  [{current:>5d}/{size:>5d}]")
-
-
-def test_loop(dataloader, model, loss_fn):
-    model.eval()
-    num_batches = len(dataloader)
-    test_loss = 0
-
-    with torch.no_grad():
-        for y, X in dataloader:
-            pred = model(X)
-            test_loss += loss_fn(pred, y["label"]).item()
-
-    test_loss /= num_batches
-    print(f"Test Error: \n Avg loss: {test_loss:>8f} \n")
-    return test_loss
 
 
 for t in range(config["epochs"]):
