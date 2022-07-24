@@ -37,6 +37,13 @@ The code was implemented and tested with `python3.10`.
 | https://drive.google.com/file/d/1M5SFB5cYS7Q3oLpkEQVGERXtquwPxury/view?usp=sharing | 418M | 5      | 0.6346 |
 
 
+## TODO
+- [ ] EDA
+- [ ] data cleaning
+- [ ] hyperparameters tuning
+- [ ] implenet early stopping
+
+
 ## References
 
 1. Data Set. Kaggle [competition](https://www.kaggle.com/competitions/commonlitreadabilityprize/overview).
