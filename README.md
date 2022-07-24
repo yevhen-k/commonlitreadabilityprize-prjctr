@@ -42,6 +42,7 @@ The code was implemented and tested with `python3.10`.
 - [ ] data cleaning
 - [ ] hyperparameters tuning
 - [ ] implenet early stopping
+- [ ] overfit tracking
 
 
 ## References
