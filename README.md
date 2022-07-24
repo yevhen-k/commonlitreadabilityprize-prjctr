@@ -32,9 +32,9 @@ The code was implemented and tested with `python3.10`.
 
 ## Pretrain Model Weights
 
-| Google Drive                                                                       | Size | # Epochs | Test RMSE |
-| :--------------------------------------------------------------------------------- | ---- | -------- | --------- |
-| https://drive.google.com/file/d/1M5SFB5cYS7Q3oLpkEQVGERXtquwPxury/view?usp=sharing | 418M | 5        | 0.6346    |
+| Google Drive                                                                       | Size | Epochs | RMSE   |
+| :--------------------------------------------------------------------------------- | ---- | ------ | ------ |
+| https://drive.google.com/file/d/1M5SFB5cYS7Q3oLpkEQVGERXtquwPxury/view?usp=sharing | 418M | 5      | 0.6346 |
 
 
 ## References
