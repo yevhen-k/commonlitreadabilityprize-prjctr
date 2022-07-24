@@ -1,8 +1,10 @@
-# Test Task for Prjctr
+# Test Task for Prjctr (Model Training Part)
 
 **Disclamer**
 
 The aim of the project is *not* to solve Kaggle competition, but to make a dummy deep learning repo for further deployment.
+
+Trained model will be deployed with the use of the following recipes: https://github.com/yevhen-k/commonlitreadabilityprize-prjctr-service
 
 ## Data Set
 
