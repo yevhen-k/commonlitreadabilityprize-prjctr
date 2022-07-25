@@ -40,6 +40,7 @@ The code was implemented and tested with `python3.10`.
 
 
 ## TODO
+- [ ] replace torch.mean with Global Average Pooling
 - [ ] EDA
 - [ ] data cleaning
 - [ ] hyperparameters tuning
